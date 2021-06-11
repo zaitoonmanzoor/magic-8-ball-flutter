@@ -1,0 +1,60 @@
+import 'dart:math';
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(
+      MaterialApp(
+          home: top(),
+        ),
+    );
+
+class top extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.amber,
+        title: Center(
+          child: Text('Ask Me Anything',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.yellowAccent,
+            ),
+          ),
+        ),
+      ),
+      backgroundColor: Colors.pinkAccent[100],
+      body: magic(),
+    );
+
+
+  }
+}
+class magic extends StatefulWidget {
+  @override
+  _magicState createState() => _magicState();
+}
+
+class _magicState extends State<magic> {
+  @override
+  int ballNumber =1 ;
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextButton(
+              onPressed: (){
+                setState(() {
+                  ballNumber = Random().nextInt(5)+1; // range o-max
+                });
+              },
+            child: Image(image: AssetImage('images/ball$ballNumber.png'),
+              ),
+              ),
+        ],
+      ),
+    );
+  }
+}
